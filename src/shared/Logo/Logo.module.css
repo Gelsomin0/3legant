@@ -1,0 +1,16 @@
+.logo {
+    font-family: var(--secondary-font);
+    color: var(--absolute-black);
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.logo span {
+    color: var(--neutral-04100);
+}
+
+@media screen and (min-width: 768px) {
+    .logo {
+        font-size: 24px;
+    }
+}
