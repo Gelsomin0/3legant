@@ -1,15 +1,26 @@
 import { lazy } from 'react';
 import { Link } from 'react-router-dom';
 import css from './AppBar.module.css';
+import { useState } from 'react';
 
 const Logo = lazy(() => import('../../shared/Logo/Logo'));
 const IconButton = lazy(() => import('../../shared/IconButton/IconButton'));
+const MobileMenu = lazy(() => import('../MobileMenu/MobileMenu'));
 
 const AppBar = () => {
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    const toggleMobileMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
+        console.log('hello');
+    }
+
     return (
         <header className={css.header}>
-            <div className={css.header__menu_btn}>
-                <IconButton name='menu-hamburger' />
+            <MobileMenu isOpen={isMenuOpen} onClose={toggleMobileMenu} />
+
+            <div className={css.header__menu_btn} >
+                <IconButton name='menu-hamburger' onClick={toggleMobileMenu}/>
             </div>
 
             <div className={css.header__logo}>
